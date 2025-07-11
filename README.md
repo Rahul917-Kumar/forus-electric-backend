@@ -3,6 +3,7 @@
 This is the backend API for a simple blog platform built with **MongoDB**, **Express.js**, and **Node.js**. It provides user authentication (with JWT) and CRUD operations for blog posts.
 
 ---
+> Deployed Link: https://forus-electric-backend.onrender.com/
 ## Features
 
 - ✅ User Registration & Login
