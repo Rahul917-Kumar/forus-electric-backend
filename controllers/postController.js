@@ -70,3 +70,25 @@ exports.deletePost = async (req, res) => {
 
     res.json({ message: 'Post deleted successfully' })
 }
+
+exports.getPostById = async (req, res) => {
+    try {
+        let blog_id = req.params.id;
+        if (!blog_id || blog_id.trim() === '') {
+            return res.status(400).json({ message: 'Post ID is required' })
+        }
+        const post = await Post.findOne({
+            _id: blog_id,
+            userId: req.user._id,
+        });
+
+        if (!post) {
+            return res.status(404).json({ message: "Post not found or unauthorized" });
+        }
+
+        res.json(post);
+    } catch (err) {
+        res.status(500).json({ message: "Error fetching post" });
+    }
+};
+  
