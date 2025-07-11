@@ -14,6 +14,11 @@ app.use(express.json())
 
 connectDB()
 
+app.get("/health", (req, res) => {
+    res.status(200).json({ message: "Server is healthy" })
+})
+
+// Routes
 app.use('/api/auth', authRoutes)
 app.use('/api/posts', postRoutes)
 
